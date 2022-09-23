@@ -6,9 +6,11 @@ specifiers:
   vite: ^3.1.0
   vue: ^3.2.37
   vue-tsc: ^0.40.4
+  vuex: ^4.0.2
 
 dependencies:
   vue: 3.2.39
+  vuex: 4.0.2_vue@3.2.39
 
 devDependencies:
   '@vitejs/plugin-vue': 3.1.0_vite@3.1.2+vue@3.2.39
@@ -132,6 +134,10 @@ packages:
     dependencies:
       '@vue/compiler-dom': 3.2.39
       '@vue/shared': 3.2.39
+
+  /@vue/devtools-api/6.2.1:
+    resolution: {integrity: sha512-OEgAMeQXvCoJ+1x8WyQuVZzFo0wcyCmUR3baRVLmKBo1LmYZWMlRiXlux5jd0fqVJu6PfDbOrZItVqUEzLobeQ==}
+    dev: false
 
   /@vue/reactivity-transform/3.2.39:
     resolution: {integrity: sha512-HGuWu864zStiWs9wBC6JYOP1E00UjMdDWIG5W+FpUx28hV3uz9ODOKVNm/vdOy/Pvzg8+OcANxAVC85WFBbl3A==}
@@ -551,6 +557,15 @@ packages:
       '@vue/runtime-dom': 3.2.39
       '@vue/server-renderer': 3.2.39_vue@3.2.39
       '@vue/shared': 3.2.39
+
+  /vuex/4.0.2_vue@3.2.39:
+    resolution: {integrity: sha512-M6r8uxELjZIK8kTKDGgZTYX/ahzblnzC4isU1tpmEuOIIKmV+TRdc+H4s8ds2NuZ7wpUTdGRzJRtoj+lI+pc0Q==}
+    peerDependencies:
+      vue: ^3.0.2
+    dependencies:
+      '@vue/devtools-api': 6.2.1
+      vue: 3.2.39
+    dev: false
 
   /yallist/4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
