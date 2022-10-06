@@ -1,5 +1,6 @@
-import { createRouter, createWebHistory, RouteRecordRaw} from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import DefaultLayout from '../components/DefaultLayout.vue'
+import AuthLayout from '../components/AuthLayout.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Surveys from '../views/Surveys.vue'
 import Login from '../views/Login.vue'
@@ -19,15 +20,24 @@ const routes: RouteRecordRaw[] = [
         ]
     },
     {
-        path: '/login',
-        name: 'Login',
-        component: Login
+        path: '/auth',
+        name: 'Auth',
+        redirect: '/login',
+        component: AuthLayout,
+        children: [
+            {
+                path: '/login',
+                name: 'Login',
+                component: Login
+            },
+            {
+                path: '/register',
+                name: 'Register',
+                component: Register
+            },
+        ]
     },
-    {
-        path: '/register',
-        name: 'Register',
-        component: Register
-    },
+
 ]
 
 const router = createRouter({
@@ -37,9 +47,9 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.meta.requiresAuth && !store.state.user.token) {
-        next({name: 'Login',})
+        next({ name: 'Login', })
     } else if (store.state.user.token && (to.name === 'Login' || to.name === 'Register')) {
-        next({name: 'Dashboard'})
+        next({ name: 'Dashboard' })
     } else {
         next()
     }
