@@ -11,6 +11,7 @@ specifiers:
   typescript: ^4.6.4
   vite: ^3.1.0
   vue: ^3.2.37
+  vue-router: ^4.0.13
   vue-tsc: ^0.40.4
   vuex: ^4.0.2
 
@@ -19,6 +20,7 @@ dependencies:
   '@heroicons/vue': 2.0.12_vue@3.2.39
   '@tailwindcss/forms': 0.5.3_tailwindcss@3.1.8
   vue: 3.2.39
+  vue-router: 4.0.13_vue@3.2.39
   vuex: 4.0.2_vue@3.2.39
 
 devDependencies:
@@ -945,6 +947,15 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /vue-router/4.0.13_vue@3.2.39:
+    resolution: {integrity: sha512-LmXrC+BkDRLak+d5xTMgUYraT3Nj0H/vCbP+7usGvIl9Viqd1UP6AsP0i69pSbn9O0dXK/xCdp4yPw21HqV9Jw==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': 6.2.1
+      vue: 3.2.39
+    dev: false
 
   /vue-tsc/0.40.13_typescript@4.8.3:
     resolution: {integrity: sha512-xzuN3g5PnKfJcNrLv4+mAjteMd5wLm5fRhW0034OfNJZY4WhB07vhngea/XeGn7wNYt16r7syonzvW/54dcNiA==}
