@@ -61,7 +61,7 @@ const navigation = [
                 <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
                   <MenuItems class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <MenuItem>
-                      <a class="block px-4 py-2 text-sm text-gray-700" @click="logout">Sign out</a>
+                      <a class="block px-4 py-2 text-sm text-gray-700 cursor-pointer" @click="logout">Sign out</a>
                     </MenuItem>
                   </MenuItems>
                 </transition>
@@ -104,7 +104,7 @@ const navigation = [
             </button>
           </div>
           <div class="mt-3 space-y-1 px-2">
-            <DisclosureButton class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white" @click="logout">
+            <DisclosureButton class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white cursor-pointer" @click="logout">
               Sign out
             </DisclosureButton>
           </div>
