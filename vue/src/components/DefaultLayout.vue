@@ -13,11 +13,8 @@ const user = computed(() => {
 })
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-  { name: 'Reports', href: '#', current: false },
+  { name: 'Dashboard', to: { name: 'Dashboard' } },
+  { name: 'Surveys', to: { name: 'Surveys' } },
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
@@ -45,7 +42,9 @@ const userNavigation = [
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <a v-for="item in navigation" :key="item.name" :href="item.href" class="px-3 py-2 rounded-md text-sm font-medium" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+                <router-link v-for="item in navigation" :key="item.name" :to="item.to" active-class="bg-gray-900 text-white" class="px-3 py-2 rounded-md text-sm font-medium" :class="[$route.name === item.to.name ? '' : 'text-gray-300 hover:bg-gray-700 hover:text-white']">
+                  {{ item.name }}
+                </router-link>
               </div>
             </div>
           </div>
@@ -87,9 +86,9 @@ const userNavigation = [
 
       <DisclosurePanel class="md:hidden">
         <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-          <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" class="block px-3 py-2 rounded-md text-base font-medium" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white']" :aria-current="item.current ? 'page' : undefined">
+          <router-link v-for="item in navigation" :key="item.name" :to="item.to" active-class="bg-gray-900 text-white" class="block px-3 py-2 rounded-md text-base font-medium" :class="[$route.name === item.to.name ? '' : 'text-gray-300 hover:bg-gray-700 hover:text-white']">
             {{ item.name }}
-          </DisclosureButton>
+          </router-link>
         </div>
         <div class="border-t border-gray-700 pt-4 pb-3">
           <div class="flex items-center px-5">
