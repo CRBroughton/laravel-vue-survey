@@ -2,15 +2,20 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 import { computed } from 'vue'
-import { RouterView } from 'vue-router'
+import { RouterView, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
-import type { UserStore } from '../store'
 
-const store = useStore<UserStore>()
+const store = useStore()
+const router = useRouter()
 
 const user = computed(() => {
   return store.state.user.data
 })
+
+const logout = () => {
+  store.commit('logout')
+  router.push({ name: 'Login' })
+}
 
 const navigation = [
   { name: 'Dashboard', to: { name: 'Dashboard' } },

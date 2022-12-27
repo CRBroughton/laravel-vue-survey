@@ -6,7 +6,7 @@ import Dashboard from '../views/Dashboard.vue'
 import Surveys from '../views/Surveys.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
-import store from '../store'
+import { store } from '../store'
 
 const routes: RouteRecordRaw[] = [
   {
