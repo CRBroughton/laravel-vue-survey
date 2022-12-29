@@ -1,6 +1,7 @@
 import type { InjectionKey } from 'vue'
 import type { Store } from 'vuex'
 import { useStore as baseUseStore, createStore } from 'vuex'
+import axiosClient from '../axios'
 
 interface State {
   user: {
@@ -23,20 +24,15 @@ export const store = createStore<State>({
   },
   getters: {},
   actions: {
-    register({ commit }, user) {
-      return fetch('http://localhost:8000/api/register', {
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        method: 'POST',
-        body: JSON.stringify(user),
-      })
-        .then(res => res.json())
-        .then((res) => {
-          commit('setUser', res)
-          return res
-        })
+    async register({ commit }, user) {
+      const { data } = await axiosClient.post('/register', user)
+      commit('setUser', data)
+      return data
+    },
+    async login({ commit }, user) {
+      const { data } = await axiosClient.post('/login', user)
+      commit('setUser', data)
+      return data
     },
   },
   mutations: {
