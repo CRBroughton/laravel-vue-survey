@@ -1,9 +1,13 @@
 <script setup lang=ts>
 import { LockClosedIcon } from '@heroicons/vue/20/solid'
+import type { AxiosError, AxiosResponse } from 'axios'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { store } from '../store'
 
 const router = useRouter()
+
+const errorMsg = ref()
 
 const user = {
   email: '',
@@ -17,6 +21,9 @@ function login() {
       router.push({
         name: 'Dashboard',
       })
+    })
+    .catch((err: AxiosError<{ error: string }>) => {
+      errorMsg.value = err.response?.data.error
     })
 }
 </script>
@@ -39,6 +46,12 @@ function login() {
     </p>
   </div>
   <form class="mt-8 space-y-6" @submit.prevent="login">
+    <div v-if="errorMsg" class="flex items-center justify-between py-2 px-5 bg-red-500 text-white rounded">
+      {{ errorMsg }}
+      <span class="w-8 h-8 flex items-center justify-center rounded-full cursor-pointer hover:bg-[rgba(0,0,0,0.2)]" @click="errorMsg = ''">
+        <svg width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" /></svg>
+      </span>
+    </div>
     <input type="hidden" name="remember" value="true">
     <div class="-space-y-px rounded-md shadow-sm">
       <div>
