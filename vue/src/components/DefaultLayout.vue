@@ -13,8 +13,10 @@ const user = computed(() => {
 })
 
 const logout = () => {
-  store.commit('logout')
-  router.push({ name: 'Login' })
+  store.dispatch('logout')
+    .then(() => {
+      router.push({ name: 'Login' })
+    })
 }
 
 const navigation = [

@@ -34,6 +34,11 @@ export const store = createStore<State>({
       commit('setUser', data)
       return data
     },
+    async logout({ commit }) {
+      const response = await axiosClient.post('/logout')
+      commit('logout')
+      return response
+    },
   },
   mutations: {
     logout: (state) => {

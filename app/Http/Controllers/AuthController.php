@@ -59,8 +59,7 @@ class AuthController extends Controller {
     }
 
     public function logout(Request $request) {
-        $user = User::where('email', $request->email)->first();
-
+        $user = Auth::user();
         $user->currentAccessToken()->delete();
 
         return response([
