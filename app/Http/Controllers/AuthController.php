@@ -58,9 +58,10 @@ class AuthController extends Controller {
         ]);
     }
 
-    public function logout(Request $request) {
+    public function logout() {
+        /** @var User $user */ // I don't know why this fixes it
         $user = Auth::user();
-        $user->currentAccessToken()->delete();
+        $user->tokens()->delete();
 
         return response([
             'success' => true
