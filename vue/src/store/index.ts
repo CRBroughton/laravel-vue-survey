@@ -12,7 +12,147 @@ interface State {
     }
     token: string | null
   }
+  surveys: Survey[]
 }
+
+interface Survey {
+  id: number
+  title: string
+  slug: string
+  status: 'active' | 'draft'
+  image: string
+  description: string
+  created_at: string
+  updated_at: string
+  expire_date: string
+  questions: Questions[]
+}
+
+interface Questions {
+  id: number
+  type: string
+  question: string
+  description: string | null
+  data: Options
+}
+
+interface Options {
+  option?: Option[]
+}
+
+interface Option {
+  uuid: string
+  text: string
+}
+
+const tmpSurveys: Survey[] = [
+  {
+    id: 100,
+    title: 'Title for my survey',
+    slug: 'survey-slug',
+    status: 'draft',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1200px-Tailwind_CSS_Logo.svg.png',
+    description: 'lorem ipsum',
+    created_at: '2023-10-10',
+    updated_at: '2023-10-10',
+    expire_date: '2023-10-10',
+    questions: [
+      {
+        id: 1,
+        type: 'select',
+        question: 'my question',
+        description: null,
+        data: {
+          option: [
+            { uuid: 'uuid', text: 'GB' },
+          ],
+        },
+      },
+      {
+        id: 2,
+        type: 'checkbox',
+        question: 'my question',
+        description: 'my description',
+        data: {
+          option: [
+            { uuid: 'uuid', text: 'GB' },
+          ],
+        },
+      },
+      {
+        id: 3,
+        type: 'radio',
+        question: 'my question',
+        description: 'my description',
+        data: {
+          option: [
+            { uuid: 'uuid', text: 'GB' },
+          ],
+        },
+      },
+      {
+        id: 4,
+        type: 'checkbox',
+        question: 'my question',
+        description: 'my description',
+        data: {
+          option: [
+            { uuid: 'uuid', text: 'GB' },
+          ],
+        },
+      },
+      {
+        id: 5,
+        type: 'checkbox',
+        question: 'my question',
+        description: 'my description',
+        data: {
+          option: [
+            { uuid: 'uuid', text: 'GB' },
+          ],
+        },
+      },
+      {
+        id: 6,
+        type: 'text',
+        question: 'my question',
+        description: null,
+        data: {},
+      },
+      {
+        id: 7,
+        type: 'textarea',
+        question: 'my question',
+        description: 'my description',
+        data: {},
+      },
+    ],
+  },
+  {
+    id: 200,
+    title: 'Title for my survey',
+    slug: 'survey-slug',
+    status: 'active',
+    image: 'https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_vue_icon_130078.png',
+    description: 'lorem ipsum',
+    created_at: '2023-10-10',
+    updated_at: '2023-10-10',
+    expire_date: '2023-10-10',
+    questions: [],
+  },
+  {
+    id: 300,
+    title: 'Title for my survey',
+    slug: 'survey-slug',
+    status: 'draft',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png',
+    description: 'lorem ipsum',
+    created_at: '2023-10-10',
+    updated_at: '2023-10-10',
+    expire_date: '2023-10-10',
+    questions: [],
+  },
+]
 
 export const store = createStore<State>({
   state: {
@@ -21,6 +161,7 @@ export const store = createStore<State>({
       },
       token: sessionStorage.getItem('TOKEN'),
     },
+    surveys: [...tmpSurveys],
   },
   getters: {},
   actions: {
