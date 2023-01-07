@@ -36,7 +36,7 @@ interface Questions {
 }
 
 interface Options {
-  option: Option[]
+  option?: Option[]
 }
 
 interface Option {
@@ -66,6 +66,64 @@ const tmpSurveys: Survey[] = [
             { uuid: 'uuid', text: 'GB' },
           ],
         },
+      },
+      {
+        id: 2,
+        type: 'checkbox',
+        question: 'my question',
+        description: 'my description',
+        data: {
+          option: [
+            { uuid: 'uuid', text: 'GB' },
+          ],
+        },
+      },
+      {
+        id: 3,
+        type: 'radio',
+        question: 'my question',
+        description: 'my description',
+        data: {
+          option: [
+            { uuid: 'uuid', text: 'GB' },
+          ],
+        },
+      },
+      {
+        id: 4,
+        type: 'checkbox',
+        question: 'my question',
+        description: 'my description',
+        data: {
+          option: [
+            { uuid: 'uuid', text: 'GB' },
+          ],
+        },
+      },
+      {
+        id: 5,
+        type: 'checkbox',
+        question: 'my question',
+        description: 'my description',
+        data: {
+          option: [
+            { uuid: 'uuid', text: 'GB' },
+          ],
+        },
+      },
+      {
+        id: 6,
+        type: 'text',
+        question: 'my question',
+        description: null,
+        data: {},
+      },
+      {
+        id: 7,
+        type: 'textarea',
+        question: 'my question',
+        description: 'my description',
+        data: {},
       },
     ],
   },
