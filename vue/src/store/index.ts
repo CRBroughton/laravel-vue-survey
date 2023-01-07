@@ -127,6 +127,30 @@ const tmpSurveys: Survey[] = [
       },
     ],
   },
+  {
+    id: 200,
+    title: 'Title for my survey',
+    slug: 'survey-slug',
+    status: 'active',
+    image: 'https://google.com',
+    description: 'lorem ipsum',
+    created_at: '2023-10-10',
+    updated_at: '2023-10-10',
+    expire_date: '2023-10-10',
+    questions: [],
+  },
+  {
+    id: 300,
+    title: 'Title for my survey',
+    slug: 'survey-slug',
+    status: 'draft',
+    image: 'https://google.com',
+    description: 'lorem ipsum',
+    created_at: '2023-10-10',
+    updated_at: '2023-10-10',
+    expire_date: '2023-10-10',
+    questions: [],
+  },
 ]
 
 export const store = createStore<State>({
