@@ -14,6 +14,63 @@ interface State {
   }
 }
 
+interface Survey {
+  id: number
+  title: string
+  slug: string
+  status: 'active' | 'draft'
+  image: string
+  description: string
+  created_at: string
+  updated_at: string
+  expire_date: string
+  questions: Questions[]
+}
+
+interface Questions {
+  id: number
+  type: string
+  question: string
+  description: string | null
+  data: Options
+}
+
+interface Options {
+  option: Option[]
+}
+
+interface Option {
+  uuid: string
+  text: string
+}
+
+const tmpSurveys: Survey[] = [
+  {
+    id: 100,
+    title: 'Title for my survey',
+    slug: 'survey-slug',
+    status: 'draft',
+    image: 'https://google.com',
+    description: 'lorem ipsum',
+    created_at: '2023-10-10',
+    updated_at: '2023-10-10',
+    expire_date: '2023-10-10',
+    questions: [
+      {
+        id: 1,
+        type: 'select',
+        question: 'my question',
+        description: null,
+        data: {
+          option: [
+            { uuid: 'uuid', text: 'GB' },
+          ],
+        },
+      },
+    ],
+  },
+]
+
 export const store = createStore<State>({
   state: {
     user: {
