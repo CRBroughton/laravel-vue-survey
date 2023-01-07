@@ -1,6 +1,12 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { PlusIcon } from '@heroicons/vue/20/solid'
+import { store } from '../store'
 import PageComponent from '../components/PageComponent.vue'
+
+const surveys = computed(() => {
+  return store.state.surveys
+})
 </script>
 
 <template>
@@ -16,6 +22,9 @@ import PageComponent from '../components/PageComponent.vue'
         </router-link>
       </div>
     </template>
+    <div>
+      <pre>{{ surveys }}</pre>
+    </div>
   </PageComponent>
 </template>
 
