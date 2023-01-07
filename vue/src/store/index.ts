@@ -12,6 +12,7 @@ interface State {
     }
     token: string | null
   }
+  surveys: Survey[]
 }
 
 interface Survey {
@@ -160,6 +161,7 @@ export const store = createStore<State>({
       },
       token: sessionStorage.getItem('TOKEN'),
     },
+    surveys: [...tmpSurveys],
   },
   getters: {},
   actions: {
