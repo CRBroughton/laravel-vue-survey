@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { PlusIcon } from '@heroicons/vue/20/solid'
+import { PencilIcon, PlusIcon, TrashIcon } from '@heroicons/vue/20/solid'
 import { store } from '../store'
 import PageComponent from '../components/PageComponent.vue'
 
@@ -29,6 +29,16 @@ const surveys = computed(() => {
           {{ survey.title }}
         </h4>
         <div class="overflow-hidden flex-1" v-html="survey.description" />
+
+        <div class="flex justify-between items-center mt-3">
+          <router-link :to="{ name: 'SurveyView', params: { id: survey.id } }" class="flex py-2 px-4 border border-transparent text-sm rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <PencilIcon class="h-6 w-6 -mt-1 inline-block" aria-hidden="true" />
+            Edit
+          </router-link>
+          <button v-if="survey.id" type="button" class="h-8 w-8 flex items-center justify-center rounded-full border border-transparent text-sm text-red-500 focus:ring-2 focus:ring-offset-2 focus:ring-red-500" @click="deleteSurvey(survey)">
+            <PencilIcon class="h-6 w-6 -mt-1 inline-block" aria-hidden="true" />
+          </button>
+        </div>
       </div>
     </div>
   </PageComponent>
