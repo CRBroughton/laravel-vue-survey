@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{ title: string }>()
+const props = defineProps<{ title?: string }>()
 </script>
 
 <template>
@@ -8,6 +8,7 @@ const props = defineProps<{ title: string }>()
       <h1 class="text-3xl font-bold tracking-tight text-gray-900">
         {{ title }}
       </h1>
+      <slot name="header" />
     </div>
   </header>
   <main>
